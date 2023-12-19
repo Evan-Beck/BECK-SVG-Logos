@@ -1,0 +1,25 @@
+{
+  "name": "beck_svg_logos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evan Beck",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evan-Beck/BECK-SVG-Logos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Evan-Beck/BECK-SVG-Logos/issues"
+  },
+  "homepage": "https://github.com/Evan-Beck/BECK-SVG-Logos#readme",
+  "dependencies": {
+    "inquirer": "^9.2.12"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
