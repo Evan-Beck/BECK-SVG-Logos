@@ -4,7 +4,7 @@ const { Circle, Triangle, Square } = require('./lib/shapes');
 
 // Function to prompt user input.
 async function promptUser() {
-    // Ensure inquirer is loaded
+    // Ensures inquirer is loaded.
     if (!inquirer) {
         console.error("Inquirer module not loaded");
         return;
