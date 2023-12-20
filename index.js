@@ -1,15 +1,17 @@
+// Used let for inquirer because it will be declared as another value in the import section at the bottom of our code.
 let inquirer;
-const fs = require('fs');
-const { Circle, Triangle, Square } = require('./lib/shapes');
+const fs = require('fs'); // FS module for file operations.
+const { Circle, Triangle, Square } = require('./lib/shapes'); // Imports shape classes, values won't change.
 
 // Function to prompt user input.
 async function promptUser() {
-    // Ensures inquirer is loaded.
+    // Ensures that the inquirer mod is loaded.
     if (!inquirer) {
         console.error("Inquirer module not loaded");
         return;
     }
 
+    // Uses the inquirer to prompt the user for input in the command line. This includes text, text color, shape, shape color.
     return inquirer.prompt([
         {
             type: 'input',
@@ -36,7 +38,7 @@ async function promptUser() {
     ]);
 }
 
-// Function to generate and save the SVG.
+// Function to generate and save the SVG and the user input.
 function generateSVG(shapeType, textColor, text, shapeColor) {
     // Uses the shape classes to create the SVG string.
     let shape;
@@ -51,16 +53,17 @@ function generateSVG(shapeType, textColor, text, shapeColor) {
                     shape = new Square();
                     break;
                     default:
-                        throw new Error('Invalid shape type');
+                        throw new Error('Invalid shape type'); // Handles invalid shape input.
     }
     shape.setText(text);
     shape.setTextColor(textColor);
     shape.setColor(shapeColor);
 
+    // Returns the generated SVG code.
     return shape.render();
 }
 
-// Main function to run the application.
+// Main function to run the application. userInput collects the input using the promptUser function. Generate SVG is based on the input in the command line and saves it to "logo.svg."
 async function main() {
     try {
     const userInput = await promptUser();
@@ -69,7 +72,6 @@ async function main() {
     }
     const svg = generateSVG(userInput.shape, userInput.textColor, userInput.text, userInput.shapeColor);
     fs.writeFileSync('logo.svg', svg);
-    // require('fs').writeFileSync('logo.svg', svg);
     console.log('Generated logo.svg');
     } catch (error) {
         console.error("error in main function:", error);
@@ -77,7 +79,7 @@ async function main() {
 }
 
 
-// Loads inquirer dynamically.
+// Loads inquirer dynamically. Module.default assigns the inquirer module and console.error handles module loading errors.
 import('inquirer').then(module => {
     inquirer = module.default;
     main(); // Calls the main after inquirer is loaded.
