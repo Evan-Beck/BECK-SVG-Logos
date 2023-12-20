@@ -26,3 +26,9 @@ Step 5: Once complete, find your logo as logo.svg in the project directory.
 
 # Screenshots and links to GitHub repository and video demonstration
 
+![CLI](<SVG screenshot 1.png>)
+![Image](<SVG screenshot 2.png>)
+
+Github Repository: https://github.com/Evan-Beck/BECK-SVG-Logos
+Live Video demonstration: https://drive.google.com/file/d/1XI7bwLwiGWznoZAVVFUDe7S3JuxVEgVJ/view
+
